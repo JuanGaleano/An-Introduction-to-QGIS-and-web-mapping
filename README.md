@@ -1,4 +1,4 @@
-## An Introduction to QGIS and web mappin
+## An Introduction to QGIS and web mapping ##
 ***
 **Date and Place:** *Pompeu Fabra University, 4-6 April 2016*
 
