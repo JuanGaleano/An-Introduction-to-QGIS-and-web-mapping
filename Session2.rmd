@@ -1,3 +1,4 @@
+
 ** **
 **Date and Place:** *Pompeu Fabra University, 4-6 April 2016*
 
@@ -13,7 +14,7 @@ Plugins allow you to extend the functionality QGIS offers.
 
 #### **<span style="color:red">Manage and Install Plugins </span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionShowPluginManager.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/training_manual/qgis_plugins/index.html?highlight=plugins)
 
-Let's check if we all have the **HEATMAP** 
+Let's check if we all have the **HEATMAP** plugin already installed. 
 
 ![alt text](http://gedemced.uab.es/images/IMAGE_PLUGINS.png)
 
@@ -51,19 +52,19 @@ Recall previous exercises to perfom steps 1 and 2.
 
 4) Check on the **Advanced** checkbox, 
 
-5) Set **Rows** to 1000 and define a **Weight field** (Totalpop). **oK**
+5) Set **Rows** to 1000 and define a **Weight field** (Totalpop). **Ok**.
 
 ![alt text](http://gedemced.uab.es/images/IMAGE_HEAT.png)
 
 6) Double-click on the raster layer on the **Layer Panel** and open the **Layer Properties** dialogue box
 
-7) **Style**: Change the render type to **Singleband pseudocolor,
-    + 7.1 **Generate a new color ramp**: Spectral (invert) and **Classify**
+7) **Style**: Change the render type to **Singleband pseudocolor.
+    + 7.1 **Generate a new color ramp**: Spectral (invert) and **Classify**.
     + 7.2 Set the **Opacity** of the first interval (blue color) to 10%. 
 
 ![alt text](http://gedemced.uab.es/images/IMAGE_HEAT2.png)
 
-8) **Apply**
+8) **Apply**.
 
 ![alt text](http://gedemced.uab.es/images/IMAGE_HEAT3.png)
 
@@ -72,6 +73,18 @@ Recall previous exercises to perfom steps 1 and 2.
 ## Excercise 11: **Consolidation task 2: John Snow and the 1854 Broad Street cholera outbreak in the Soho district of London, England**
 
 ***
+
+In 1854 there was a massive cholera outbreak in Soho, London – in three days over 120 people died from the disease. Famously, [John Snow](https://en.wikipedia.org/wiki/John_Snow) plotted the locations of the deaths on a map and found they clustered around a pump in Broad Street – he suggested that the pump be taken out of service – thus helping to end the epidemic. This then helped him formulate his theory of the spread of cholera by dirty water.
+
+This analysis is famous as it is often considered to be:
+
+The first epidemiological analysis of disease – trying to understand the spread of cases by factors in the environment
+The first geographical analysis of disease data – plotting points on a map and looking for relationships.
+
+Let's reproduce his analysis using **QGIS**.
+
+Dataset for this exercise were downloaded from: [Robin Wilson's Blog](http://blog.rtwilson.com/john-snows-famous-cholera-analysis-data-in-modern-gis-formats/)
+
 
 Within the folder **Snow_Cholera_Soho** you will find two point shapefiles (**Cholera_Deaths** and **Pumps**) and 3 raster images (**OSMap**, **OSMap_Grayscale** and **SnowMap**).
 
@@ -93,7 +106,7 @@ The **OpenLayers Plugin** [<img src="http://2.bp.blogspot.com/-cNDaVQC-C2Q/UlipA
 
 #### **<span style="color:red">Manage and Install Plugins </span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionShowPluginManager.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/training_manual/qgis_plugins/index.html?highlight=plugins)
 
-Let's install the **OpenLayers Plugin** in our computers
+Let's install the **OpenLayers Plugin** in our computers.
 
 ![alt text](http://gedemced.uab.es/images/IMAGE_PLUGINS.png)
 
@@ -116,18 +129,18 @@ For this exercise we will use the dataset Crime from the [**ggmap**](https://jou
 3) Save your new layer as an **ESRI Shapefile**. Name it **Violent_Crimes**
 4) Create a heap map. Hint: set **radius** to 500 and **rows** to 1000. 
 5) Add 3 different Open Layers.
-6) Save your map as an image (300 dpi)
+6) Save your map as an image (300 dpi).
 
 Recall previous exercise to perfom step 1.
 
 #### **<span style="color:red">2) Subset the layer (Filter)</span>**
 
-1) Select **Filter** within the **Layer** tab. (or simpy Ctrl+F) 
+1) Select **Filter** within the **Layer** tab (or simpy Ctrl+F). 
 
 ![alt text](http://gedemced.uab.es/images/IMAGE_FILTER.png)
 
 2) Create a subset of the original data using a condition: Keep only violent crimes ("robbery", "aggravated assault", "rape", "murder") and restrict data to downtown. 
-  Copy and paste this condition on the dialogue box: (offense != 'auto theft'  AND  offense  !=  'theft'  AND  offense != 'burglary')  AND (lon  >=  -95.39681  AND  lon <= -95.34188  AND   lat  >=  29.73631  AND  lat <= 29.78400)
+  Copy and paste the following condition on the dialogue box: (offense != 'auto theft'  AND  offense  !=  'theft'  AND  offense != 'burglary')  AND (lon  >=  -95.39681  AND  lon <= -95.34188  AND   lat  >=  29.73631  AND  lat <= 29.78400)
 
 ![alt text](http://gedemced.uab.es/images/IMAGE_FILTER2.png)
 
@@ -149,13 +162,13 @@ Recall previous exercise to perfom step 6.
 
 ***
 
-## Plugins for **QGIS:** The **MMQGIS Plugin**
+## Plugins for **QGIS:** The **MMQGIS Plugin**.
 
 **MMQGIS** is a set of Python plugins for manipulating vector map layers in Quantum GIS: CSV input/output/join, Geocoding, Geometry Conversion, Buffering, Hub Analysis, Simplification Column Modification, Color Ramps, and Simple Animation. MMQGIS provides an alternative to the native QGIS vector plugin set and Sextente, with verbose progress reporting, an intuitive user interface, direct shapefile/CSV-file access, and some additional capabilities missing from other plugin sets.
 
 #### **<span style="color:red">Manage and Install Plugins </span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionShowPluginManager.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/training_manual/qgis_plugins/index.html?highlight=plugins)
 
-Let's install the **MMQGIS Plugin** in our computers
+Let's install the **MMQGIS Plugin** in our computers.
 
 ![alt text](http://gedemced.uab.es/images/IMAGE_PLUGINS.png)
 
