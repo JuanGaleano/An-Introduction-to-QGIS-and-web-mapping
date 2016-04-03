@@ -43,7 +43,7 @@ Here are only some of the reasons:
   
   + **It's constantly developing:** Because anyone can add new features and improve on existing ones, QGIS never stagnates. The development of a new tool can happen as quickly as you need it to.
     
-[<img src="http://mappinggis.com/wp-content/uploads/2013/09/dev.png" width="600px" height="600px" />](http://mappinggis.com/2014/06/por-que-qgis-es-la-referencia-sig-open-source/)
+[<img src="http://mappinggis.com/wp-content/uploads/2013/09/dev.png" width="600px" height="400px" />](http://mappinggis.com/2014/06/por-que-qgis-es-la-referencia-sig-open-source/)
 
   + **Extensive help and documentation is available:** If you're stuck with anything, you can turn to the extensive documentation, your fellow QGIS users, or even the developers.
 
