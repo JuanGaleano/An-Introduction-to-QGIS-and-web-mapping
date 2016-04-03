@@ -1,0 +1,323 @@
+---
+title: "**An introduction to QUANTUM GIS (QGIS) and web mapping: Session 1**"
+author: ""
+date: "" 
+output: html_document
+---
+
+** **
+**Date and Place:** *Pompeu Fabra University, 4-6 April 2016*
+
+**Instructors:** [***Juan Galeano***](http://ced.uab.es/directori/juan-galeano/) *&* [***Antonio López Gay***](http://ced.uab.es/directori/antonio-lopez-gay/)
+
+[<img src="http://gedemced.uab.cat/images/logotipCED_nuevo.png" width="300px" height="300px" />](http://ced.uab.es)
+
+***
+
+## Plugin for **QGIS**
+
+Plugins allow you to extend the functionality QGIS offers. 
+
+#### **<span style="color:red">Manage and Install Plugins </span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionShowPluginManager.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/training_manual/qgis_plugins/index.html?highlight=plugins)
+
+Let's check if we all have the **HEATMAP** plugin already installed. 
+
+![alt text](http://gedemced.uab.es/images/IMAGE_PLUGINS.png)
+
+The **Heatmap plugin** creates a Heatmap raster for the input point vector. 
+
+## What is raster data?
+
+Raster data in GIS are matrices of discrete cells that represent features on, above or below the earth’s surface. Each cell in the raster grid is the same size, and cells are usually rectangular (in QGIS they will always be rectangular). Typical raster datasets include remote sensing data, such as aerial photography, or satellite imagery and modelled data, such as an elevation matrix.
+
+Unlike vector data, raster data typically do not have an associated database record for each cell. They are geocoded by pixel resolution and the x/y coordinate of a corner pixel of the raster layer. This allows QGIS to position the data correctly in the map canvas.
+
+QGIS makes use of georeference information inside the raster layer (e.g., GeoTiff) or in an appropriate world file to properly display the data.
+
+***
+
+## Excercise 10: **Create a heatmap**
+
+***
+
+1) Read the shapefile **CAT_2014_SC_MUNICIPI__080193** into QGIS
+2) Create a new point layer (**BCN_CENTROIDS**) extracting the centroids of each polygons in **CAT_2014_SC_MUNICIPI__080193**
+3) Create a hetmap:
+    +3.1 Create a Raster Image.
+    +3.2 Set Styles of the Raster Image. 
+
+Recall previous exercises to perfom steps 1 and 2.
+
+#### **<span style="color:red">3) Create a hetmap:</span>**
+
+1) Click on the **Raster** tab and select **Heatmap**.
+
+2) Select and **Input point Layer**,
+
+3) **Browse** to select the output files name and location. Names the .tiff file "RASTER_BARCELONA".
+
+4) Check on the **Advanced** checkbox, 
+
+5) Set **Rows** to 1000 and define a **Weight field** (Totalpop). **Ok**.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_HEAT.png)
+
+6) Double-click on the raster layer on the **Layer Panel** and open the **Layer Properties** dialogue box
+
+7) **Style**: Change the render type to **Singleband pseudocolor.
+    + 7.1 **Generate a new color ramp**: Spectral (invert) and **Classify**.
+    + 7.2 Set the **Opacity** of the first interval (blue color) to 10%. 
+
+![alt text](http://gedemced.uab.es/images/IMAGE_HEAT2.png)
+
+8) **Apply**.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_HEAT3.png)
+
+***
+
+## Excercise 11: **Consolidation task 2: John Snow and the 1854 Broad Street cholera outbreak in the Soho district of London, England**
+
+***
+
+In 1854 there was a massive cholera outbreak in Soho, London – in three days over 120 people died from the disease. Famously, [John Snow](https://en.wikipedia.org/wiki/John_Snow) plotted the locations of the deaths on a map and found they clustered around a pump in Broad Street – he suggested that the pump be taken out of service – thus helping to end the epidemic. This then helped him formulate his theory of the spread of cholera by dirty water.
+
+This analysis is famous as it is often considered to be:
+
+The first epidemiological analysis of disease – trying to understand the spread of cases by factors in the environment
+The first geographical analysis of disease data – plotting points on a map and looking for relationships.
+
+Let's reproduce his analysis using **QGIS**.
+
+Dataset for this exercise were downloaded from: [Robin Wilson's Blog](http://blog.rtwilson.com/john-snows-famous-cholera-analysis-data-in-modern-gis-formats/)
+
+
+Within the folder **Snow_Cholera_Soho** you will find two point shapefiles (**Cholera_Deaths** and **Pumps**) and 3 raster images (**OSMap**, **OSMap_Grayscale** and **SnowMap**).
+
+1) Read the two point shapefiles and the raster image **SnowMap** into QGIS. 
+
+2) Create a heat map using the number (count) of deaths by cholera.
+
+3) Save your map as an image.
+
+#### **Expected Outcome**
+
+![alt text](http://gedemced.uab.es/images/MAP8_SNOW.png)
+
+***
+
+## Plugins for **QGIS:** The **OpenLayers Plugin**
+
+The **OpenLayers Plugin** [<img src="http://2.bp.blogspot.com/-cNDaVQC-C2Q/UlipAc-5s6I/AAAAAAAALn8/am7eEk9DBHQ/s1600/openlayers.png" width="50px" height="50px" />](https://plugins.qgis.org/plugins/openlayers_plugin/) is a QGIS plugin embedding OpenLayers functionality.(GoogleMaps, OSM, Bing Maps, MapQuest, OSM/Stamen, Apple Maps )
+
+#### **<span style="color:red">Manage and Install Plugins </span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionShowPluginManager.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/training_manual/qgis_plugins/index.html?highlight=plugins)
+
+Let's install the **OpenLayers Plugin** in our computers.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_PLUGINS.png)
+
+Once the plugins is installed in a computer you will find it within the **Web** tab.
+
+***
+
+## Excercise 11: **Create a point shapefile from a .csv file, subset a Layer, create a heatmap and add an Open Layer**
+
+***
+
+For this exercise we will use the dataset Crime from the [**ggmap**](https://journal.r-project.org/archive/2013-1/kahle-wickham.pdf) packake for [**R**](https://www.r-project.org/).
+
+**Description:** Lightly cleaned Houston crime from January 2010 to August 2010 geocoded with Google Maps.
+
+**Author(s):** Houston Police Department, City of Houston.
+
+1) Read the .csv file **Crime_Houston** into QGIS. Assign the **WGS84** CRS (Coordinate Reference System).
+2) Subset the layer (**Filter**). Keep only violent crimes ("robbery", "aggravated assault", "rape", "murder") and restrict data to downtown. 
+3) Save your new layer as an **ESRI Shapefile**. Name it **Violent_Crimes**
+4) Create a heap map. Hint: set **radius** to 500 and **rows** to 1000. 
+5) Add 3 different Open Layers.
+6) Save your map as an image (300 dpi).
+
+Recall previous exercise to perfom step 1.
+
+#### **<span style="color:red">2) Subset the layer (Filter)</span>**
+
+1) Select **Filter** within the **Layer** tab (or simpy Ctrl+F). 
+
+![alt text](http://gedemced.uab.es/images/IMAGE_FILTER.png)
+
+2) Create a subset of the original data using a condition: Keep only violent crimes ("robbery", "aggravated assault", "rape", "murder") and restrict data to downtown. 
+  Copy and paste the following condition on the dialogue box: (offense != 'auto theft'  AND  offense  !=  'theft'  AND  offense != 'burglary')  AND (lon  >=  -95.39681  AND  lon <= -95.34188  AND   lat  >=  29.73631  AND  lat <= 29.78400)
+
+![alt text](http://gedemced.uab.es/images/IMAGE_FILTER2.png)
+
+Recall previous exercise to perfom step 3 and 4.
+
+#### **<span style="color:red">5) Add 3 different Open Layers.</span>**
+
+1) within the **Web** tab click on **OpenLayer Plugins** and select a provider.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_OpenLayer.png)
+
+Recall previous exercise to perfom step 6.
+
+#### **Expected Outcomes**
+
+![alt text](http://gedemced.uab.es/images/MAP10_CRIME1.png)
+![alt text](http://gedemced.uab.es/images/MAP10_CRIME2.png)
+![alt text](http://gedemced.uab.es/images/MAP10_CRIME3.png)
+
+***
+
+## Plugins for **QGIS:** The **MMQGIS Plugin**.
+
+**MMQGIS** is a set of Python plugins for manipulating vector map layers in Quantum GIS: CSV input/output/join, Geocoding, Geometry Conversion, Buffering, Hub Analysis, Simplification Column Modification, Color Ramps, and Simple Animation. MMQGIS provides an alternative to the native QGIS vector plugin set and Sextente, with verbose progress reporting, an intuitive user interface, direct shapefile/CSV-file access, and some additional capabilities missing from other plugin sets.
+
+#### **<span style="color:red">Manage and Install Plugins </span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionShowPluginManager.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/training_manual/qgis_plugins/index.html?highlight=plugins)
+
+Let's install the **MMQGIS Plugin** in our computers.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_PLUGINS.png)
+
+Once the plugins is installed in a computer you will find it on the **MMQGIS** tab.
+
+***
+
+## Excercise 12: **Geocode addresses from a .csv file using the MMQGIS plugin and add images to elements of the point shapefile**
+
+***
+
+1) Geocode addresses from a .csv file using the MMQGIS plugin
+2) Add the **OpenStreetMaps** layer from the **OpenLayers Plugin**.
+3) Set the **Style** of the **POINT_GRACIA.shp** layer to **categorized** using the variable **Type**.
+4) Add an image to element of **POINT_GRACIA.shp**.
+
+#### **<span style="color:red">1) Geocode addresses from a .csv file using the MMQGIS plugin</span>**
+
+1) Click on the **MMQGIS** tab and within **Geocode** select **Geocode csv with Google / OpenStreetMaps**.
+
+2) Select as **Input CSV file (UTF-8)** the file **POINTS_GRACIA**
+    + 2.1 Select variables for **Address**, **City**, **State**, **Country** and **Web Service**. 
+    + 2.2 **Browse** to select the **Output Shapefile** name and location.
+    + 2.3 **Browse** to select the **Not Found Output List** name and location. **Ok**.
+    
+![alt text](http://gedemced.uab.es/images/IMAGE_GEOCODE.png)
+
+Recall previous exercise to perfom step 2 3.
+
+#### **<span style="color:red">4) Add images to elements of the point shapefile</span>**
+
+1) Add a new column "Image" to the attribute table of the layer **POINT_GRACIA**.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_ADDIMAGE.png)
+
+2) Double-click on the point layer on the **Layer Panel** and open the **Layer Properties** dialogue box.
+
+3) Go to **Fields** and click the **Text Edit** of the variable **Image**.
+  + 3.1 Select **File Name** on the **Edit Widget properties** dialogue box. **Apply** and **Ok**
+
+![alt text](http://gedemced.uab.es/images/IMAGE_ADDIMAGE2.png)
+
+4) Identify the element to add an image and click on **Edit Feature Form**
+  + 4.1 Look for the variable **Image** and **Browse** to select the image to add. **Ok**.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_ADDIMAGE3.png)
+
+5) Turn off the **Toogle Editing** mode.
+
+6) Create an **Action**: Double-click on the point layer on the **Layer Panel** and open the **Layer Properties** dialogue box.
+
+7) Click on the **Action** tab and define you action as follows:
+
+![alt text](http://gedemced.uab.es/images/IMAGE_ADDIMAGE4.png)
+
+  + 7.1 **Add to actions list**
+  
+8) **Run Feature Action**
+
+![alt text](http://gedemced.uab.es/images/IMAGE_ADD5.png)
+
+***
+
+## Open Street Maps (OSM) and **QGIS**
+
+The OpenStreetMap Foundation is a non-profit foundation whose aim is to support and enable the development of freely-reusable geospatial data. It is a company limited by guarantee, registered in England and Wales on 22 August 2006. [OpenStreetMaps](https://www.openstreetmap.org/#map=5/51.500/-0.100)
+
+***
+
+## Excercise 13: **Read OSM data into QGIS, set styles and create a multi-layer choroplet map**
+
+***
+
+1) Download spatial data from OSM
+2) Read the **AMB_SC** shapefile into **QGIS**
+3) Import Topology from XML
+4) Export Topology to SpatiaLite
+    + 4.1 Set **Style**
+5) Create a Choroplet map using the variable "PROEXT".
+6) Overlay the two layers and export the map as an image. 
+
+#### **<span style="color:red">1) Download spatial data from OSM</span>**
+
+1) Select an Area on your sreen.
+
+2) Click on the **Export** tab, 
+
+3) Dowload your data using the **API Overpass**.
+
+4) Once the file is downloaded, add the .osm extension to it and store it on the course folder. 
+
+[<img src="http://gedemced.uab.es/images/IMAGE_OSMO.png" />](https://www.openstreetmap.org/#map=5/51.500/-0.100)
+
+Recall previous exercises to perfom step 2.
+
+2) Read the **AMB_SC** shapefile into **QGIS**.
+
+#### **<span style="color:red">3) Import Topology from XML (.osm file)</span>**
+
+1) Click on the **Raster** tab and within the **OpenStreetMaps** tab select **Import Topology from XML**.
+
+2) Select an **Input XML file (.osm)**, "RMB.osm", **Ok**.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_OSMO2.png)
+
+#### **<span style="color:red">4) Export Topology to SpatiaLite</span>**
+
+1) Click on the **Raster** tab and within the **OpenStreetMaps** tab select **Export Topology to SpatiaLiteL**.
+
+2) Select an **Input DB file**, "RMB.osm.db",
+
+3) Change **Export type** to **Polylines (open ways)**, 
+
+4) Click on the **Load from DB** tab and check the **highway** and **railway** boxes 
+
+![alt text](http://gedemced.uab.es/images/IMAGE_OSMO3.png)
+
+#### **<span style="color:red">4.1 Set **Style**</span>**
+
+1) Double-click on the polyline layer on the **Layer Panel** and open the **Layer Properties** dialogue box
+
+2) Select **Categorized**
+
+3) Select the **Highway** column, 
+
+4) Click on **Classify** (then edit each feature) 
+
+5) Load the style file **STYLES_OSM_AMB.qml** usig the **Style** tab on the bottom-left part of the dialogue box.  
+
+6) **Apply** and **Ok**.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_OSMO4.png)
+
+Recall previous exercises to perfom steps 5 and 6.
+
+5) Create a Choroplet map using the variable "PROEXT".
+
+6) Overlay the two layers and export the map as an image. 
+
+#### **Expected Outcome**
+
+![alt text](http://gedemced.uab.es/images/MAP9_AMB.png)
+
+Sources:
+
+(6) [ggmap](https://journal.r-project.org/archive/2013-1/kahle-wickham.pdf)
