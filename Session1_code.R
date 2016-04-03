@@ -1,0 +1,687 @@
+---
+title: "**An introduction to QUANTUM GIS (QGIS) and web mapping: Session 1**"
+author: ""
+date: "" 
+output: html_document
+---
+
+** **
+**Date and Place:** *Pompeu Fabra University, 4-6 April 2016*
+
+**Instructors:** [***Juan Galeano***](http://ced.uab.es/directori/juan-galeano/) *&* [***Antonio López Gay***](http://ced.uab.es/directori/antonio-lopez-gay/)
+
+[<img src="http://gedemced.uab.cat/images/logotipCED_nuevo.png" width="300px" height="300px" />](http://ced.uab.es)
+
+***
+
+
+  
+
+# **Brief introduction**  
+
+## What is a GIS? (1)
+
+GIS stands for **Geographical Information System**
+
+A GIS consists of:
+
+  + **Digital Data:** the geographical information that you will view and analyse using computer hardware and software.
+
+  + **Computer Hardware:** computers used for storing data, displaying graphics and processing data.
+
+  + **Computer Software:** computer programs that run on the computer hardware and allow you to work with digital data. A software program that forms part of the GIS is called a GIS Application.
+ 
+ With a GIS application you can open digital maps on your computer, create new spatial information to add to a map, create printed maps customised to your needs and perform spatial analysis.
+ 
+## What is **QGIS**
+
+QGIS is a user friendly Open Source Geographic Information System (GIS) licensed under the [GNU General Public License](http://www.gnu.org/licenses/gpl-3.0.en.html). QGIS is an official project of the Open Source Geospatial Foundation (OSGeo). 
+
+## Why **QGIS**?  
+  
+  As information becomes increasingly spatially aware, there is no shortage of tools able to fulfill some or all commonly used GIS functions. Why should anyone be using QGIS over some other GIS software package?
+
+Here are only some of the reasons:
+
+  + **It's free:** Installing and using the QGIS program costs you a grand total of zero money. No initial fee, no recurring fee, nothing.
+
+  + **It's Open Source:** If you need extra functionality in QGIS, you can do more than just hope it will be included in the next release. You can sponsor the development of a feature, or add it yourself if you are familiar with programming.
+  
+  + **It's constantly developing:** Because anyone can add new features and improve on existing ones, QGIS never stagnates. The development of a new tool can happen as quickly as you need it to.
+    
+[<img src="http://mappinggis.com/wp-content/uploads/2013/09/dev.png" width="600px" height="600px" />](http://mappinggis.com/2014/06/por-que-qgis-es-la-referencia-sig-open-source/)
+
+  + **Extensive help and documentation is available:** If you're stuck with anything, you can turn to the extensive documentation, your fellow QGIS users, or even the developers.
+
+  + **Cross-platform:** QGIS can be installed on MacOS, Windows and Linux.
+
+## Download and install **QGIS** in your computer
+ 
+ QGIS can by can be downloaded from its web page: [http://www.qgis.org/en/site/forusers/download.html](http://www.qgis.org/en/site/forusers/download.html)  
+ 
+## What is a shapefile? (2)
+
+The shapefile format is a popular geospatial vector data format for geographic information system (GIS) software. A shapefile is composed by 
+
+**Mandatory files**
+
+  + **.shp:** shape format; the feature geometry itself
+  + **.shx:** shape index format; a positional index of the feature geometry to allow seeking forwards and backwards quickly
+  + **.dbf:** attribute format; columnar attributes for each shape, in dBase IV format
+
+**Other files**
+
+  + **.prj:** projection format; the coordinate system and projection information, a plain text file describing the projection using well-known text format
+  + **.sbn and .sbx:** a spatial index of the features
+  + **.fbn and .fbx:** a spatial index of the features that are read-only
+  + **.ain and .aih:**an attribute index of the active fields in a table
+  + **.ixs:** a geocoding index for read-write datasets
+  + **.mxs:** a geocoding index for read-write datasets (ODB format)
+  + **.atx:** an attribute index for the .dbf file in the form of shapefile.columnname.atx (ArcGIS 8 and later)
+  + **.shp.xml:** geospatial metadata in XML format, such as ISO 19115 or other XML schema
+  + **.cpg:** used to specify the code page (only for .dbf) for identifying the character encoding to be used
+  + **.qix:** an alternative quadtree spatial index used by MapServer and GDAL/OGR software
+  
+  
+[<img src="http://docs.qgis.org/2.8/en/_images/point_feature.png" width="300px" height="300px" />](https://en.wikipedia.org/wiki/Shapefile) [<img src="http://docs.qgis.org/2.8/en/_images/polyline_feature.png" width="300px" height="300px" />](https://en.wikipedia.org/wiki/Shapefile) [<img src="http://docs.qgis.org/2.8/en/_images/polygon_feature.png" width="300px" height="300px" />](https://en.wikipedia.org/wiki/Shapefile)
+
+## Where to get a shapefile?
+
+There are several institutions/organizations devoted to provide geographical information. This is a incomplete but useful list to start:
+
+[**GLOBAL ADMINISTRATIVE AREAS, Boundaries without Limits:**](http://www.gadm.org/) GADM is a spatial database of the location of the world's administrative areas (or adminstrative boundaries) for use in GIS and similar software. Administrative areas in this database are countries and lower level subdivisions such as provinces, departments, bibhag, bundeslander, daerah istimewa, fivondronana, krong, landsvæðun, opština, sous-préfectures, counties, and thana. GADM describes where these administrative areas are (the "spatial features"), and for each area it provides some attributes, such as the name and variant names.
+
+[**EUROSTAT GEODATA: NUTS, European Countries:** ](http://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units) Administrative units / Statistical units / NUTS / Urban Audit / Countries / Census / Communes 
+
+[**CENTRO NACIONAL DE INFORMACIÓN GEOGRÁFICA: ** ](http://centrodedescargas.cnig.es/CentroDescargas/equipamiento.do?method=descargarEquipamiento&codEquip=3) The Download Center is a website from the National Center for Geographic Information (CNIG) where free downloads of geographic data files generated by the National Geographic Institute (IGN) can be made. Provided this information is accessible in accordance with Orden FOM/2807/2015 , of December 18th (BOE dated December 26th, 2015), which establishes the policy for the public diffusion of geographic data generated by the Directorate General of the National Geographic Institute.
+
+[**DIVA-GIS: **](http://www.diva-gis.org/gdata) DIVA-GIS is developed by Robert Hijmans. Previous versions were co-developed with Edwin Rojas, Mariana Cruz, Rachel O'Brien, and Israel Barrantes. Our objective is to develop a free, and simple but versatile GIS program, that is particularly useful for studying the distribution of biodiversity. Countries / Different administrative levels.
+
+[**NOMECALLES, Comunidad de Madrid: **](http://www.madrid.org/nomecalles/DescargaBDTCorte.icm) Shapefiles Madrid (Autonomous Community, Municipalities, census tracts, others).
+
+[**INSTITUTO DE ESTADÍSTICA Y CARTOGRAFÍA DE ANDALUCIA: ** ](http://www.juntadeandalucia.es/institutodeestadisticaycartografia/bd/visorCartografico/app/portal.jsp) (Autonomous Community, Municipalities, census tracts, others).
+
+[**CARTOBCN: **](http://w20.bcn.cat/cartobcn/default.aspx?lang=ca) Shapefiles of the municipality of Barcelona (Districts / Neighborhoods / Census tracts).
+
+[**INSTITUT GEOLOGIC i CARTOGRÀFIC DE CATALUNYA: **](http://www.icc.cat/) Shapefiles of Catalonia (Comarques / Municipalities / Census tracts).
+
+## What is a Coordinate Reference System (CRS)? (3)
+
+A spatial reference system (SRS) or coordinate reference system (CRS) is a coordinate-based local, regional or global system used to locate geographical entities.
+
+[<img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Azimutalprojektion-schief_kl-cropped.png" width="300px" height="300px" />](http://www.qgis.org/ca/site/) [<img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Mercator_1569.png" width="500px" height="300px" />](https://en.wikipedia.org/wiki/Mercator_1569_world_map)  
+ 
+ 
+ 
+## World's most famous GIS: Google Maps
+ 
+ [<img src="http://www.etradesupply.com/blog/wp-content/uploads/2013/05/Google-map.jpg" width="800px" height="600px" />](https://www.google.es/maps/@15.5075129,-18.2378795,3z?hl=en-GB)
+
+***
+## QGIS Desktop and Browser 
+
+The QGIS Browser is a panel in QGIS that lets you easily navigate in your filesystem and manage geodata. You can have access to common vector files (e.g., ESRI shapefiles or MapInfo files), databases (e.g., PostGIS, Oracle, SpatiaLite or MS SQL Spatial) and WMS/WFS connections. You can also view your GRASS data (to get the data into QGIS, see GRASS GIS Integration).
+***
+
+## Excercise 1: **Read shapefiles into QGIS and manipulate features**
+
+***
+1. Download shapefiles from Spain from gadm
+2. General manipulation of a layer in QGIS
+    + 2.1 Read the shapefile of Spain by provinces
+    + 2.2 Save a layer as a ESRI shapefile 
+    + 2.3 Open Attribute table 
+    + 2.4 Identify Features
+    + 2.5 Select Features
+    + 2.6 Toogle Editing
+        + 2.6.1 Delete Features (Ceuta and Melilla)
+        + 2.6.2 Move Features (Canary Islands)     
+
+
+###  [**1. Download shapefiles from Spain from gadm.org**](http://www.gadm.org/)
+
+### **2. General manipulation of a layer in QGIS**
+ 
+#### **<span style="color:red">2.1 Read data into QGIS</span>**
+
+QGIS allows us to work with all kind of spatial data (vectors, raster images, spatialite, etc.). 
+To read a shapefile into QGIS we 
+
+1) request to **add a vector layer** from the **Layer** tab,
+
+2) look for the shapefile (**ESP_adm2.shp** in this case) and click the **Open** button:
+
+**NOTE:** alternatively, you can simply look for the shapefile on the QGIS browser and dragged into the Desktop. 
+
+![alt text](http://gedemced.uab.es/images/VIDEO1.gif)
+
+
+#### **<span style="color:red">2.2 Save a layer as a ESRI shapefile</span>**
+
+As we want to edit a layer (delete and move features) first we save a copy of the original shapefile.     
+
+QGIS allows us to save a layer in multiple spatial formats. To save a layer as an ESRI shapefile we
+
+1) select the layer to save on **Layer panel**, click on the right buttom of the mouse and **Save As**.
+
+2) Select ESRI Shapefile on the **Format** tab and
+
+3) **Browse** to select the output files name and location. **Ok**
+
+![alt text](http://gedemced.uab.es/images/VIDEO2.gif)
+
+#### **<span style="color:red">2.3 Open Atributte table</span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionOpenTable.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#sec-attribute-table)
+
+Data associated with the shapefile can be access from the **Open Attribute table tab**.
+ 
+#### **<span style="color:red">2.4 Identify Features</span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionIdentify.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/introduction/general_tools.html#identify)
+
+The **Identify features** tab allows to us access data associated with each of the elements (polygons in this case) of the shapefile.
+
+#### **<span style="color:red">2.5 Select Features</span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionSelectRectangle.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/introduction/general_tools.html#sec-selection)
+
+The **Select features** tab allows us to select features by area or by clicking on them. 
+
+#### **<span style="color:red">2.6 Toogle Editing</span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionToggleEditing.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/introduction/qgis_gui.html)
+
+In order to **Delete**, **Move**, re-draw ,etc. a feature from a layer, first we activate the **Toogle Editing** tab.    
+
+#### **<span style="color:red">2.6.1 Delete Features (Ceuta and Melilla) </span>**
+
+After turning on the editing mode, select the feature/s to delet and click on the delete (trash) tab. Or simply click the backspace key on your keyboard.
+
+#### **<span style="color:red">2.6.2 Move Features (Canary Islands) </span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionMoveFeature.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/introduction/qgis_gui.html)
+
+After turning on the editing mode, select the feature/s to move click on the **Move Feature(s)** tab and then place the selection wherever you want. 
+
+Lastly, turn off the editing mode and save changes.
+
+![alt text](http://gedemced.uab.es/images/VIDEO3.gif)
+
+***
+
+## Excercise 2: **Create new layers and shapefiles**
+
+***
+1. Read the shapefile **CAT_2014_SC** into QGIS
+2. Create new layers
+    + 2.1 Duplicate a layer
+    + 2.2 Aggregate geographical levels 
+    + 2.3 Split a vector layer
+    + 2.4 Merge shapefiles to one
+
+Recall previous exercise to perfom steps 1. 
+       
+#### **<span style="color:red">2.1 Duplicate a layer </span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionDuplicateLayer.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/introduction/qgis_gui.html)
+
+To duplicate a layer:
+
+1) select the layer to duplicate on **Layer panel**, 
+
+2) click on the right buttom of the mouse and **Duplicate**.
+
+#### **<span style="color:red">2.2 Aggregate geographical levels (Dissolve)</span>** 
+
+We have loaded a shapefile of Catalonia by census tracts in 2014. Within the attributes of the shapefile there are two columns (**MUNICPI** and **PROV**) by which census census tracts can be aggregated. So, we will create two new layers (and corresponding shapefiles): one of Catalonia by municipalities (947) and by provinces (4). In order to perform this task we
+
+1) Click on the **Vector** tab and within the **Geoprocessing tools** select **Dissolve**.
+
+2) Select an **input vector layer** (*CAT_2014_SC* in this case) and a **Dissolve field** (MUNICIPI).
+
+3) **Browse** to select the output files name and location. Name the new layer **CAT_2014_MUN**. **Ok**.
+ 
+![alt text](http://gedemced.uab.es/images/IMAGE_DISSOLVE.png) 
+
+Repeat the same operation but dissolving the layer of census tracts by provinces. Please, name your new layer and shapefile **CAT_2014_PROV**.
+ 
+#### **<span style="color:red">2.3 Split a vector layer</span>** 
+ 
+Now we split our new layer (**CAT_2014_MUN**) of Catalonia by municipalities into four shapefiles (1 for each catalan province). In order to perform this task we
+
+1) Click on the **Vector** tab and within **Data Management Tools** select **Split Vector Layer**.
+
+2) **Browse** to select the output folder. **Ok**
+
+![alt text](http://gedemced.uab.es/images/IMAGE_SPLIT.png) 
+
+#### **<span style="color:red">2.4 Merge shapefiles to one</span>** 
+  
+With QGIS is really easy to merge several shapefiles to one. In order to perfom this task:  
+
+1) Create a new folder with the shapefiles to merge, 
+
+2) Click on the **Vector** tab and within **Data Management Tools** select **Merge Shapefiles to one**.
+
+3) **Browse** to select an **input directory** (Folder from step 1) and **Browse** to select the output files name and location. **Ok**.
+  
+![alt text](http://gedemced.uab.es/images/IMAGE_MERGE.png) 
+
+***
+
+## Excercise 3: **Add new columns to layer properties**
+
+***
+
+1. Add new columns to layer properties.
+    + 1.1 Add Geometry Columns.
+    + 1.2 Basic computation: the field calculator.
+        + 1.2.1 Add a column with the percentage of foreign-born population by census tract. 
+
+#### **<span style="color:red">1.1 Add Geometry Columns</span>** 
+
+If we need to know the area and perimiter of each polygon of a layer
+
+1) Click on the **Vector** tab and within **Geometry Tools** select **Export/Add Geometry Columns**.
+
+2) Check the **Save to new shapefile** box and 
+
+3) **Browse** to select the output files name and location. **Ok**.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_GEOMETRIES.png)
+
+#### **<span style="color:red">1.2 Basic computation: the field calculator</span>** 
+
+If we need some computation between extisting variables
+
+1) Open the **Attribute Table**
+
+2) Turn on the editing mode,
+
+3) Open the **Field Calculator**.
+
+4) Name the new variable. 
+
+5) Select the field type lenght and precision.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_FIELD_CALCULATOR1.png)
+![alt text](http://gedemced.uab.es/images/IMAGE_FIELD_CALCULATOR2.png)
+
+***
+
+## Excercise 4: **Join data to shapefile**
+
+***
+
+1. Create a dbf file.
+2. Read a .cvs file into QGIS.
+3. Join data from two layers.
+4. Basic Statistics of a variable.
+
+#### **<span style="color:red">1. Create a dbf file</span>** 
+
+Recall: **.dbf:** attribute format; columnar attributes for each shape, in dBase IV format.
+
+The easiest way to create a .dbf file is to download and install [**Open Office**](http://www.openoffice.org/download/), read a .csv into the OpenOffice Calc and save it as a .dbf file.  
+
+#### **<span style="color:red">2. Read a .cvs file into QGIS</span>** 
+
+The most common situation is not to found a shapefile with the data we want to represent on its .dbf file. 
+So let's see how to read a *csv file into QGIS and Join data to shapefile.
+
+To read a csv into QGIS we 
+
+1) request to **add Delimited Text Layer** from the **Layer** tab,
+
+2) look for the csv (**DATOS_CAT_2014.csv** in the **CSV** folder). 
+
+3) check the **No Geometry (attribute only table)** checkbox. **Ok**
+
+**NOTE:** alternatively, we can simply look for the .csv file on the QGIS browser and dragged into the Desktop. 
+
+![alt text](http://gedemced.uab.es/images/VIDEO5.gif)
+
+#### **<span style="color:red">3. Join data from two layers</span>** 
+
+In order to join data to a layer, 
+
+1) Double-click on the shape layer on the **Layer Panel** and open the **Layer Properties** dialogue box
+
+2) On the **Joins** tab add using the **+** symbol, 
+
+3) Assign a **Join Layer** (you data, .csv file)
+
+4) Assign **Join** and **Target field** and
+
+5) Choose which fields are joined. **Ok**
+
+![alt text](http://gedemced.uab.es/images/VIDEO4.gif)
+
+#### **<span style="color:red">4. Basic Statistics of a variable</span>** 
+
+In order to get the basis statistcs of a variable
+
+1) Click on the **Vector** tab and within **Analysis Tools** select **Basic Statistics**.
+
+2) Select an **Input Vector layer** and a **Target Field**. **Ok** 
+
+![alt text](http://gedemced.uab.es/images/IMAGE_BASICSTATS.png)
+
+***
+
+## Excercise 5: **Create a choropleth map (Discrete Values)**
+
+***
+
+**Greate a choropleth map**
+
+A choropleth map is a thematic map in which areas are shaded or patterned in proportion to the measurement of the statistical variable being displayed on the map, such as population density or per-capita income (4).
+
+1. Split the **CAT_2014_SC** layer by municipalities (MUNICIPI). (Create a new folder within the **SHAPEFILES** folder of the course).
+2. Read the shapefile **CAT_2014_SC_MUNICIPI__080193** into QGIS.
+3. Create a chroropleth map.
+
+Recall previous exercises to perfom steps 1 and 2. 
+
+#### **<span style="color:red">4. Create a choropleth map</span>** 
+
+1) Double-click on the shape layer on the **Layer Panel** and open the **Layer Properties** dialogue box.
+
+2) Select **Categorized**.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_LAYER_PROPERTIES.png)
+
+3) Select the **DISTRICTE** column. 
+
+4) Change the **color ramp** to spectral (Invert). 
+
+5) Click on **Classify** .
+
+6) Click on **symbol**, **Simple fill** and set the board width to 0.060000, 
+
+7) **Apply** and **Ok**. 
+
+![alt text](http://gedemced.uab.es/images/IMAGE_LAYER_PROPERTIES2b.png)
+
+![alt text](http://gedemced.uab.es/images/IMAGE_LAYER_PROPERTIES3b.png)
+
+***
+
+## Excercise 5: **Create a choropleth map (Continuous Values)**
+
+***
+
+**Greate a choropleth map**
+
+A choropleth map is a thematic map in which areas are shaded or patterned in proportion to the measurement of the statistical variable being displayed on the map, such as population density or per-capita income (4).
+
+1. Read the shapefile **CAT_2014_SC_MUNICIPI__080193** into QGIS.
+2. Add a column (**PROPEXT**) with the proportion (expressed as percentage) of foreign-born population in each census tract (1061). Decimal number of length 10 and presicion 2. (e.g. 21.55).
+3. Create a chroropleth map.
+
+Recall previous exercises to perfom steps 1 and 2. 
+
+#### **<span style="color:red">3. Create a choropleth map</span>** 
+
+1) Double-click on the shape layer on the **Layer Panel** and open the **Layer Properties** dialogue box
+
+2) On **Style** select **Graduated**.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_LAYER_PROPERTIES.png)
+
+3) Select the **PROPEXT** column. 
+
+4) Change the **color ramp** to **YlOrRD**. 
+
+5) On **Mode** select **Pretty Breaks** and click on **Classify**. 
+
+6) Click on **symbol**, **Simple fill** and set the board width to 0.160000, 
+
+7) **Apply** and **Ok**. 
+
+![alt text](http://gedemced.uab.es/images/IMAGE_LAYER_PROPERTIES2.png)
+
+![alt text](http://gedemced.uab.es/images/IMAGE_LAYER_PROPERTIES3.png)
+
+***
+
+## Excercise 6: **Export maps as images or pdf files: The print Composer**
+
+***
+
+**The Print Composer**
+
+With the Print Composer (5) you can create nice maps and atlasses that can be printed or saved as PDF-file, an image or an SVG-file. This is a powerfull way to share geographical information produced with QGIS that can be included in reports or published.
+
+The Print Composer provides growing layout and printing capabilities. It allows you to add elements such as the QGIS map canvas, text labels, images, legends, scale bars, basic shapes, arrows, attribute tables and HTML frames. You can size, group, align, position and rotate each element and adjust the properties to create your layout. The layout can be printed or exported to image formats, PostScript, PDF or to SVG (export to SVG is not working properly with some recent Qt4 versions; you should try and check individually on your system). You can save the layout as a template and load it again in another session. Finally, generating several maps based on a template can be done through the atlas generator.
+
+1. Open the **Print Composer**.
+2. Add a new map.
+3. Add arrow or line.
+4. Add scalebar.
+5. Add Label.
+6. Add legend.
+  + 6.1 Edit legend (Item Properties).
+  + 6.2 Define dpi resolution.
+6. Save map as image or pdf file.
+
+#### **<span style="color:red">1. Open the Print Composer</span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionNewComposer.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/print_composer/print_composer.html)
+
+#### **<span style="color:red">2. Add a new map</span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionAddMap.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/print_composer/print_composer.html)
+
+#### **<span style="color:red">3. Add arrow or line</span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionAddArrow.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/print_composer/print_composer.html)
+
+#### **<span style="color:red">4. Add scalebar</span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionScaleBar.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/print_composer/print_composer.html)
+
+#### **<span style="color:red">5. Add Label</span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionLabel.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/print_composer/print_composer.html)
+
+#### **<span style="color:red">6. Add legend</span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionAddLegend.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/print_composer/print_composer.html)
+
+#### **<span style="color:red">6.1 Edit legend (Item Properties)</span>**
+
+1) On the **Item properties** tab go to **Legend items**,
+
+2) Un-check the **Auto Update**, 
+
+3) Edit the legend by items. 
+
+![alt text](http://gedemced.uab.es/images/IMAGE_LEGEND.png)
+
+#### **<span style="color:red">6.2 Define dpi resolution</span>**
+
+1) On the **Composition** tab go to **Export settings**,
+
+2) Set resolution on 300 dpi.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_LEGEND2.png)
+
+#### **<span style="color:red">6.2 Save map as image or pdf file</span>**
+
+1) Export as image  [<img src="http://docs.qgis.org/2.8/en/_images/mActionSaveMapAsImage.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/print_composer/print_composer.html)
+
+2) Export as pdf  [<img src="http://docs.qgis.org/2.8/en/_images/mActionSaveAsPDF.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/print_composer/print_composer.html)
+
+![alt text](http://gedemced.uab.es/images/MAP3_BARCELONA.png)
+
+***
+
+## Excercise 7: **Create an Atlas: The Altlas Composer**
+
+***
+
+1. Read the shapefile **CAT_2014_DISTRICTES** into QGIS.
+2. Set the polygon fill of layer **CAT_2014_DISTRICTES** to transparent.
+3. set the board width to 0.460000.
+4. Open a new print composer. 
+5. Create an Atlas.
+6. Save each element of the Atlas as a .png file.
+
+Recall previous exercises to perfom steps 1, 2, 3 and 4. 
+
+#### **<span style="color:red">5. Create an Atlas</span>**
+
+1) On the **Atlas Generation** tab check the **Generate an Atlas** box,
+
+2) **Coverage Layer: CAT_2014_DISTRICTES**
+
+3) Switch to the **Item Properties** Tab and check the **Controled by Atlas** box. 
+
+4) Preview Atlas  [<img src="http://docs.qgis.org/2.8/en/_images/mIconAtlas.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/user_manual/print_composer/print_composer.html)
+
+Recall previous exercises to perfom steps 6.
+
+[<img src="http://gedemced.uab.es/images/MAP3_CIUTAT VELLA.png" width="300px" height="300px" />](http://gedemced.uab.es/images/MAP3_CIUTAT VELLA.png)[<img src="http://gedemced.uab.es/images/MAP3_EIXAMPLE.png" width="300px" height="300px" />](http://gedemced.uab.es/images/MAP3_EIXAMPLE.png)[<img src="http://gedemced.uab.es/images/MAP3_GRACIA.png" width="300px" height="300px" />](http://gedemced.uab.es/images/MAP3_GRACIA.png)[<img src="http://gedemced.uab.es/images/MAP3_SANTS.png" width="300px" height="300px" />](http://gedemced.uab.es/images/MAP3_SANTS.png)[<img src="http://gedemced.uab.es/images/MAP3_LES CORTS.png" width="300px" height="300px" />](http://gedemced.uab.es/images/MAP3_LES CORTS.png)[<img src="http://gedemced.uab.es/images/MAP3_NOU BARRIS.png" width="300px" height="300px" />](http://gedemced.uab.es/images/MAP3_NOU BARRIS.png)[<img src="http://gedemced.uab.es/images/MAP3_SARRIA.png" width="300px" height="300px" />](http://gedemced.uab.es/images/MAP3_SARRIA.png)[<img src="http://gedemced.uab.es/images/MAP3_HORTA.png" width="300px" height="300px" />](http://gedemced.uab.es/images/MAP3_HORTA.png)
+
+***
+
+## Excercise 8: **Using the QGIS Diagrams to create a dot map**
+
+***
+
+1. Read the shapefile **BCN_Barri_ETRS89_SHP** into QGIS.
+2. Add a new variable to Attribute Table of the layer (Totalpop: Homes+Dones).
+3. Use the pie chart **Diagram** to represent the sex structure and population size in each neighborhood of the municipality of Barcelona.  
+
+#### **<span style="color:red">Create a Diagram</span>**
+
+To create a Diagram;
+
+1) Open the **Layer Properties** dialogue box of the layer **BCN_Barri_ETRS89_SHP**.
+
+2) Click on the **Diagrams** tab, 
+
+3) Check the **Show Diagrama for this Layer** box.
+
+4) Select **Pie Chart** as **Diagram type**.
+
+5) Select **Attibutes** from **Available Attibutes** and drop them into the **Assigned Attributes** dialogue box.
+
+6) Set color of each attribute. 
+
+7) **Size:** change from **Fixed Size** to **Scaled Size**.
+  + 7.1 Select and **Attibute** (Totalpop).
+  + 7.2 Find the **Maximum Value**.
+  + 7.3 Define a maximum size (10).
+  
+8) Change the **Placement** of the diagram from **Around the centroid** to **Over the centroid**. 
+
+9) **Apply**. **Ok**.
+
+![alt text](http://gedemced.uab.es/images/VIDEO6.gif)
+
+***
+
+## Excercise 9: **Extract centroids from polygons and creat a dot map**
+
+***
+
+1. Read the shapefile **BCN_Barri_ETRS89_SHP** into QGIS.
+2. Extract centroids from polygons.
+3. Add a new variable to Attribute Table of the layer (Totalpop: Homes+Dones).
+4. Create a dot map.
+5. Create a dot map. 
+
+#### **<span style="color:red">2. Extract centroids from polygons</span>**
+
+1) Click on the **Vector** tab and within **Geometry Tools** select **Polygon Centroids**.
+
+2) Select an **Input Polygon Vector layer**.
+
+3) **Browse** to select the output files name and location. **Ok**.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_CENTROIDS.png)
+
+#### **<span style="color:red">4. Create a dot map</span>**
+
+1) Double-click on the point layer on the **Layer Panel** and open the **Layer Properties** dialogue box
+
+2) On **Style** select **Graduated**
+
+3) Select the **Totalpop** column. 
+
+4) Select a **color ramp** or a single color. 
+
+5) Click on **Symbol**, **Simple fill** and set the dot size, 
+
+7) **Apply** and **Ok**. 
+
+![alt text](http://gedemced.uab.es/images/IMAGE_CENTROIDS3.png)
+
+![alt text](http://gedemced.uab.es/images/IMAGE_CENTROIDS2.png)
+
+***
+
+## Excercise 9: **Consolidation task 1**
+
+***
+
+1) Open a new project
+
+On the folder **CONSOLIDATION TASK1** you have the 36 shapefiles of the municipalities of the Metropolitan Area of Barcelona by census tracts in 2014.
+
+                CAT_2014_SC_MUNICIPI__080155
+                CAT_2014_SC_MUNICIPI__080193
+                CAT_2014_SC_MUNICIPI__080207
+                CAT_2014_SC_MUNICIPI__080543
+                CAT_2014_SC_MUNICIPI__080569
+                CAT_2014_SC_MUNICIPI__080689
+                CAT_2014_SC_MUNICIPI__080728
+                CAT_2014_SC_MUNICIPI__080734
+                CAT_2014_SC_MUNICIPI__080771
+                CAT_2014_SC_MUNICIPI__080898
+                CAT_2014_SC_MUNICIPI__081017
+                CAT_2014_SC_MUNICIPI__081234
+                CAT_2014_SC_MUNICIPI__081252
+                CAT_2014_SC_MUNICIPI__081265
+                CAT_2014_SC_MUNICIPI__081574
+                CAT_2014_SC_MUNICIPI__081580
+                CAT_2014_SC_MUNICIPI__081691
+                CAT_2014_SC_MUNICIPI__081803
+                CAT_2014_SC_MUNICIPI__081944
+                CAT_2014_SC_MUNICIPI__081960
+                CAT_2014_SC_MUNICIPI__082009
+                CAT_2014_SC_MUNICIPI__082042
+                CAT_2014_SC_MUNICIPI__082055
+                CAT_2014_SC_MUNICIPI__082114
+                CAT_2014_SC_MUNICIPI__082172
+                CAT_2014_SC_MUNICIPI__082212
+                CAT_2014_SC_MUNICIPI__082444  
+                CAT_2014_SC_MUNICIPI__082457
+                CAT_2014_SC_MUNICIPI__082520
+                CAT_2014_SC_MUNICIPI__082634
+                CAT_2014_SC_MUNICIPI__082665  
+                CAT_2014_SC_MUNICIPI__082824
+                CAT_2014_SC_MUNICIPI__082896
+                CAT_2014_SC_MUNICIPI__083015
+                CAT_2014_SC_MUNICIPI__089045
+                CAT_2014_SC_MUNICIPI__089058
+
+2) Merge shapefiles to one. Name the new layer and shapefile **AMB_SC**.
+
+3) Create a new layer with the municipal boundaries of the AMB. Name it **AMB_MUNICIPIS**.
+
+4) Delete the columns "PROPEXT", "Totalpop" y "Totalext" from the attibute table of the layer **AMB_SC**.
+
+5) Read the .csv **CAT_2014_DATOS** into QGIS.
+
+6) Join the columns "Totalpop" and "Totalext" from **CAT_2014_DATOS** to the **AMB_SC** layer.
+
+7) Add the following colums to the the attibute table of the layer **AMB_SC**:
+    + 7.1 "PROPEXT": Totalpop/Totalext*100 (Output fiel Type: Decimal (Presicion 2))
+    + 7.2 "AMBPROPEXT": 18.94704 (**Output fiel Type:** Decimal (Presicion 2))
+    + 7.3 "LQ_EXT": PROPEXT/AMBPROPEXT (**Output fiel Type:** Decimal (Presicion 2))
+    + 7.4 "AMB": concat('AMB') (**Output fiel Type:** Text (string))
+
+8) Create a new layer with the boundary of the AMB. Name it **AMB_CONTORNO**
+
+9) Create a chorolplet map over the variable "LQ_EXT" with 7 intervals (as in the following image). Color ramp: Spectral, invert.
+    + 9.1 Overlay the layer **AMB_MUNICIPIS** with transparent fill for its polygons. (Play with the boarder width).
+    + 9.2 Overlay the layer **AMB_CONTORNO** with transparent fill for it polygon. (Play with the boarder width).
+    
+10) Export you map as an image (300 dpi) and as a PDF.
+
+#### **Expected Outcome**
+
+![alt text](http://gedemced.uab.es/images/MAP_LQ.png)
+
+Sources:
+ 
+(1) [A Gentle Introduction to GIS](http://docs.qgis.org/2.8/en/docs/gentle_gis_introduction/introducing_gis.html#overview)
+ 
+(2) [SHAPEFILE](https://en.wikipedia.org/wiki/Shapefile)
+ 
+(3) [Coordinate Reference System](https://en.wikipedia.org/wiki/Spatial_reference_system)
+
+(4) [Choropleth map](https://en.wikipedia.org/wiki/Choropleth_map)
+
+(5) [Print Composer](http://docs.qgis.org/2.8/en/docs/user_manual/print_composer/print_composer.html)
+
