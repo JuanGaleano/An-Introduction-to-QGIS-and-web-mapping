@@ -1,5 +1,5 @@
 ---
-title: "**An introduction to QUANTUM GIS (QGIS) and web mapping: Session 1**"
+title: "**An introduction to QUANTUM GIS (QGIS) and web mapping**"
 author: ""
 date: "" 
 output: html_document
@@ -13,6 +13,8 @@ output: html_document
 [<img src="http://gedemced.uab.cat/images/logotipCED_nuevo.png" width="300px" height="300px" />](http://ced.uab.es)
 
 ***
+
+This document is the outcome of a RMarkdown file. The source code can be acces in [**GITHUB**](https://github.com/JuanGaleano/An-Introduction-to-QGIS-and-web-mapping)
 
 ## Plugin for **QGIS**
 
@@ -89,7 +91,7 @@ The first geographical analysis of disease data – plotting points on a map and
 
 Let's reproduce his analysis using **QGIS**.
 
-Dataset for this exercise were downloaded from: [Robin Wilson's Blog](http://blog.rtwilson.com/john-snows-famous-cholera-analysis-data-in-modern-gis-formats/)
+Datasets for this exercise were downloaded from: [Robin Wilson's Blog](http://blog.rtwilson.com/john-snows-famous-cholera-analysis-data-in-modern-gis-formats/)
 
 
 Within the folder **Snow_Cholera_Soho** you will find two point shapefiles (**Cholera_Deaths** and **Pumps**) and 3 raster images (**OSMap**, **OSMap_Grayscale** and **SnowMap**).
@@ -292,7 +294,7 @@ Recall previous exercises to perfom step 2.
 
 ![alt text](http://gedemced.uab.es/images/IMAGE_OSMO3.png)
 
-#### **<span style="color:red">4.1 Set **Style**</span>**
+#### **<span style="color:red">4.1 Set Style</span>**
 
 1) Double-click on the polyline layer on the **Layer Panel** and open the **Layer Properties** dialogue box
 
@@ -317,6 +319,55 @@ Recall previous exercises to perfom steps 5 and 6.
 #### **Expected Outcome**
 
 ![alt text](http://gedemced.uab.es/images/MAP9_AMB.png)
+
+***
+
+## Plugins for **QGIS:** The **Cartogram Plugin**.
+
+Create continuous area cartograms.
+
+Author: Morten Wulff
+
+#### **<span style="color:red">Manage and Install Plugins </span>** [<img src="http://docs.qgis.org/2.8/en/_images/mActionShowPluginManager.png" width="50px" height="50px" />](http://docs.qgis.org/2.8/en/docs/training_manual/qgis_plugins/index.html?highlight=plugins)
+
+Let's install the **Cartogram** in our computers.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_PLUGINS.png)
+
+Once the plugins is installed in a computer you will find it on the **Create Cartogram** tab. [<img src="http://gedemced.uab.es/images/icon.png" width="50px" height="50px" />](https://plugins.qgis.org/plugins/cartogram/) 
+
+***
+
+## Excercise 13: **Create a cartogram of the population living in Catalonia, Andalusia and Madrid in 2014 by Autonomous Community of birth**
+
+***
+
+1) Read the shapefile **ESP_CARTOGRAM** into QGIS.
+2) Use the cartogram plugin to create three cartograms.
+3) Save each cartogram as an ESRI shapefile. 
+4) Create a choroplet map using the cartograms.
+5) Save maps as images. 
+
+Recall previous exercise to perform step 1. 
+
+#### **<span style="color:red">2) Use the cartogram plugin to create three cartograms.</span>**
+
+1) Click on the **Vector** tab and within the **Cartogram** tab select **Create a Cartogram**.
+
+![alt text](http://gedemced.uab.es/images/IMAGE_CARTO.png)
+
+2) Select and **Input Layer** and an **Area Field**.
+
+3) Set the **Number of iterations to perfom** to 10**
+
+![alt text](http://gedemced.uab.es/images/IMAGE_CARTO.png)
+
+Recall previous exercise to perform step 3, 4 and 5. 
+
+#### **Expected Outcome**
+
+![alt text](http://gedemced.uab.es/images/IMAGE_CARTOS.png)
+
 
 Sources:
 
