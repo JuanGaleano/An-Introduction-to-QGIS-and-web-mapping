@@ -83,7 +83,7 @@ The first geographical analysis of disease data – plotting points on a map and
 
 Let's reproduce his analysis using **QGIS**.
 
-Dataset for this exercise were downloaded from: [Robin Wilson's Blog](http://blog.rtwilson.com/john-snows-famous-cholera-analysis-data-in-modern-gis-formats/)
+Datasets for this exercise were downloaded from: [Robin Wilson's Blog](http://blog.rtwilson.com/john-snows-famous-cholera-analysis-data-in-modern-gis-formats/)
 
 
 Within the folder **Snow_Cholera_Soho** you will find two point shapefiles (**Cholera_Deaths** and **Pumps**) and 3 raster images (**OSMap**, **OSMap_Grayscale** and **SnowMap**).
