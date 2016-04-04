@@ -286,7 +286,7 @@ Recall previous exercises to perfom step 2.
 
 ![alt text](http://gedemced.uab.es/images/IMAGE_OSMO3.png)
 
-#### **<span style="color:red">4.1 Set **Style**</span>**
+#### **<span style="color:red">4.1 Set Style</span>**
 
 1) Double-click on the polyline layer on the **Layer Panel** and open the **Layer Properties** dialogue box
 
